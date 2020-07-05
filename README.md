@@ -37,4 +37,7 @@ nnoremap <leader>iv :PyImportVenv<CR>
 
 " Jump to tags from packages installed in your venv
 nnoremap <leader>tv :PyTagsVenv<CR>
+
+" To generate tags in your venv package dir
+nnoremap <leader>tg :PyTagsGenerate<CR>
 ```
