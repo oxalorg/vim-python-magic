@@ -1,4 +1,5 @@
 function! s:get_venv_package_dir()
+    let l:venv_name = fnamemodify(getcwd(), ":t")
     return expand('~/.virtualenvs/'.l:venv_name.'/lib/python*/site-packages', 1)
 endfunction
 
@@ -19,7 +20,7 @@ function! s:pyimport_sink(line)
     let lnum = getcurpos()[1]
     let class = split(a:line, " ")[0]
     let cpath = substitute(split(a:line, " ")[1], "/", ".", "g")
-    call append(lnum, printf("from %s import %s", cpath[:-4], class))
+    call append(0, printf("from %s import %s", cpath[:-4], class))
 endfunction
 
 function! s:py_source(env, strip_extra_columns)
